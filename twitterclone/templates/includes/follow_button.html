@@ -1,0 +1,12 @@
+{% load static %}
+
+{% if user != request.user %}
+    <a href="{% url 'follow_user' user.id %}">
+        {% if user not in request.user.who_im_following.all %}
+        Follow
+        {% else %}
+        Unfollow
+        {% endif %}
+    </a>
+{% endif %}
+{% comment %} Include Tag: https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#include {% endcomment %}

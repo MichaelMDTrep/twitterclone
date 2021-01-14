@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ request.user }} Notifications{% endblock %}
+
+{% block main %}
+    {% for notification in notifications %}
+        <div class="notification">
+            {{ notification.message }}
+        </div>
+    {% endfor %}
+{% endblock %}

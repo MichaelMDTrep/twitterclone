@@ -48,6 +48,8 @@
             <a class="logo" href="{% url 'home' %}">Twitter Clone</a>
             <div class="nav-links">
                 {% if request.user.is_authenticated %}
+                    <a href="{% url 'notification_list' %}">Notifications {{ request.user.new_notifications }}</a>
+                    <a href="{% url 'user_profile' request.user.id %}">My Profile</a>
                     <a href="/logout/">Logout</a>
                 {% else %}
                     <a href="/sign_up/">Sign Up</a>

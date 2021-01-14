@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block title %}Tweet #{{ tweet.id }}{% endblock %}
+
+{% block main %}
+    {% include 'includes/tweet.html' with tweet=tweet %}
+{% endblock %}

@@ -1,0 +1,8 @@
+{% load static %}
+
+<div class="tweet">
+    <a  href="{% url 'tweet_detail' tweet.id %}">{{ tweet.text }}</a>
+    {{ tweet.created_at }}
+    <a href="{% url 'user_profile' tweet.user.id %}">{{ tweet.user }}</a>
+</div>
+{% comment %} Include Tag: https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#include {% endcomment %}

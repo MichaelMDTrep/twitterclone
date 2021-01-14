@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.username }}'s Profile{% endblock %}
+
+{% block main %}
+    <h1>{{ user.username }}'s Profile</h1>
+    {% comment %} Include Tag: https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#include {% endcomment %}
+    {% include 'includes/follow_button.html' with user=user %}
+    <span>Followers: {{ user.followers.count }}</span>
+    <span>Following: {{ user.who_im_following.count }}</span>
+    <span>Tweets: {{ user.tweets.count }}</span>
+    {% for tweet in user.tweets.all %}
+        {% include 'includes/tweet.html' with tweet=tweet %}
+    {% endfor %}
+{% endblock %}
+
