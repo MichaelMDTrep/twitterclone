@@ -10,8 +10,3 @@ class MyUser(AbstractUser):
     who_im_following = models.ManyToManyField(
         "self", related_name="followers", symmetrical=False, null=True
     )
-
-
-class Tweet(models.Model):
-    text = models.CharField(max_length=100)
-    created_at = models.DateTimeField(default=timezone.now)

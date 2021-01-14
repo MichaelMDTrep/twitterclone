@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
+    {% if request.user.is_authenticated %}
+        <h1>Hello, {{ request.user.first_name }} {{ request.user.last_name }}</h1>
+        <h2>{{ request.user.username }}</h2>
+    {% endif %}
+    <a href="{% url 'tweet_create' %}">Create Tweet</a>
+    {% if tweets.exists %}
+        <div class="tweet-list">
+            {% for tweet in tweets %}
+                <div class="tweet">
+                    <a  href="{% url 'tweet_detail' tweet.id %}">{{ tweet.text }}</a>
+                    {{ tweet.created_at }}
+                    {{ tweet.user }}
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h3>No tweets to present.</h3>
+    {% endif %}
+{% endblock %}

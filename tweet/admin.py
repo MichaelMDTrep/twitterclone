@@ -1,5 +1,5 @@
 from django.contrib import admin
-from tweet.models import posts
+from .models import Tweet
 
 
-admin.site.register(posts)
+admin.site.register(Tweet)

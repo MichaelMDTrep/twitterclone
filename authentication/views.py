@@ -15,7 +15,7 @@ def login_view(request):
             if user:
                 login(request, user)
                 return HttpResponseRedirect(
-                    request.GET.get("next", reverse("homepage"))
+                    request.GET.get("next", reverse("home"))
                 )
 
     form = LoginForm()
@@ -24,4 +24,4 @@ def login_view(request):
 
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect(reverse("homepage"))
+    return HttpResponseRedirect(reverse("home"))

@@ -1,10 +1,10 @@
 from django.db import models
-from django.utils import timezone
 from twitteruser.models import MyUser
 
 
-class posts(models.Model):
-    posts = models.TextField(max_length=300)
-    time_date = models.DateTimeField(default=timezone.now)
-    my_user = models.ForeignKey(
-        MyUser, on_delete=models.CASCADE, related_name="posts")
+class Tweet(models.Model):
+    user = models.ForeignKey(
+        MyUser, on_delete=models.CASCADE, related_name='tweets')
+    text = models.CharField(max_length=140)
+    created_at = models.DateTimeField(auto_now_add=True)
+    # Auto Now Add: https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.DateField.auto_now_add
